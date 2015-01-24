@@ -1,12 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Initialize.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player.cs" Line="49" Column="163" />
-      <File FileName="Assets\Scripts\Player.cs" Line="68" Column="1" />
+      <File FileName="Assets\Scripts\Player.cs" Line="13" Column="18" />
       <File FileName="Assets\Scripts\MenuButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Initialize.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MyConstants.cs" Line="12" Column="27" />
+      <File FileName="Assets\Scripts\Initialize.cs" Line="18" Column="31" />
+      <File FileName="Assets\Scripts\MyConstants.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -2,15 +2,28 @@
 using System.Collections;
 
 public class Initialize : MonoBehaviour {
-	
+
+	// UI Textures
 	public Texture portraitImg;
 	public Texture inventoryImg;
+	public Texture healthbarBackground;
 
-	public GUISkin backgroundSlider;
-	public GUISkin foregroundSlider;
-	
+	// Inventory Variables
+	bool inventoryOpen = false;
+	int selGridInt = 0;
+	Texture[] inventoryTextures = new Texture[8];
+
+	// Health/Stamina Bar Variables
+	int healthbarLength = 100;
+	int healthbarMaxLength = 100;
+	int staminabarLength = 100;
+	int staminabarMaxLength = 100;
+
 	// Use this for initialization
 	void Start () {
+		for (int i = 0; i < 8; i++) {
+			inventoryTextures[i] = inventoryImg;
+		}
 	}
 	
 	// Update is called once per frame
@@ -20,13 +33,20 @@ public class Initialize : MonoBehaviour {
 	void OnGUI() {
 		// Player portrait
 		GUI.DrawTexture (new Rect (10, 10, Screen.width/15, Screen.width/15), portraitImg);
-		// Inventory Button
-		GUI.DrawTexture (new Rect (Screen.width - Screen.width/10, Screen.height - Screen.width/10, Screen.width/10, Screen.width/10), inventoryImg);
 		// Health Bar
-		GUI.HorizontalSlider (new Rect (10 + Screen.width / 15 + 5, 10, Screen.width / 5, Screen.height / 20), 5, 0, 10, backgroundSlider.horizontalSlider, backgroundSlider.horizontalSliderThumb);
-		GUI.HorizontalSlider (new Rect (11 + Screen.width / 15 + 5, 11, Screen.width / 5 - 2, Screen.height / 10 - 2), 5, 0, 10, foregroundSlider.horizontalSlider, foregroundSlider.horizontalSliderThumb);
-		// Stamina Bar
-		GUI.HorizontalSlider (new Rect (10 + Screen.width / 15 + 5, 10 + Screen.height / 20 + 5, Screen.width / 5, Screen.height / 20), 10, 0, 10);
+		GUI.DrawTexture (new Rect (10 + Screen.width / 15 + 5, 10 , Screen.width / 5, Screen.height / 70), healthbarBackground);
+		// Inventory Button
+		if (GUI.Button (new Rect (Screen.width - Screen.width / 15, Screen.height - Screen.width / 15, Screen.width / 15, Screen.width / 15), inventoryImg)) {
+			inventoryOpen = !inventoryOpen;
+		}
+
+		if (inventoryOpen) {
+			GUI.DrawTexture (new Rect (Screen.width - Screen.width / 5, Screen.height - Screen.height / 3 - Screen.width / 15, Screen.width / 5, Screen.height / 3), portraitImg);
+			selGridInt = GUI.SelectionGrid (new Rect (Screen.width - Screen.width / 5, Screen.height - Screen.height / 3 - Screen.width / 15, Screen.width / 5, Screen.height / 3), selGridInt, inventoryTextures, 2);
+		} 
+		else {
+			selGridInt = -1;
+		}
 	}
 	
 }
