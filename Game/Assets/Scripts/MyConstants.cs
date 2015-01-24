@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-enum ItemType
+public enum ItemType
 {
 	SHOVEL, AXE, WOOD, FEATHERS, MATCHES, KNIFE, FLINT, ROPE
 }
@@ -10,5 +10,10 @@ enum ItemType
 public class MyConstants {
 	public const int NUM_ITEM_TYPES = 8;
 	public const int CAMERA_HEIGHT = 300;
-    public const int WATER_HEIGHT_LEVEL = 75;
+	public const int WATER_HEIGHT_LEVEL = 150;
+	
+	public static void Win(int ending)
+	{
+		Debug.Log (string.Format ("You win with ending {0}", ending));
+	}
 }
