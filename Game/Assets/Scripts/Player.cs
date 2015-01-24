@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 	
-	Inventory inventory;
+	public Inventory inventory;
 	
 	public Camera camera;
 	public int speed = 1;
@@ -85,23 +85,28 @@ public class Player : MonoBehaviour {
 	{
 		if (collision.gameObject.tag == "Tunnel") 
 		{
+			Debug.Log ("Exit reached");
 			MyConstants.Win (1);
 		} 
 		else if (collision.gameObject.tag == "TunnelRubble") 
 		{
 			Debug.Log ("Hit rubble");
-			if(inventory.ContainsItem (ItemType.SHOVEL))
+			if (inventory.ContainsItem (ItemType.SHOVEL)) 
 			{
-				Debug.Log ("Destroyed");
-				Destroy (collision.gameObject);
+					Debug.Log ("Destroyed");
+					Destroy (collision.gameObject);
 			}
-		}
+		} 
 		else if (collision.gameObject.tag == "Collectible") 
 		{
-			Debug.Log ("Picked up shovel");
-			Collectible item = collision.gameObject.GetComponent<Collectible>();
-			inventory.AddItems (item.type, item.amount);
-			Destroy (collision.gameObject);
+				Debug.Log ("Picked up shovel");
+				Collectible item = collision.gameObject.GetComponent<Collectible> ();
+				inventory.AddItems (item.type, item.amount);
+				Destroy (collision.gameObject);
+		} 
+		else if (collision.gameObject.tag == "Portal")
+		{
+			MyConstants.Win (2);
 		}
 	}
 	
