@@ -72,8 +72,37 @@ public class Player : MonoBehaviour {
 		float heightDiff = 0;
 		heightDiff = newPos.y - gameObject.transform.position.y;
 
-		gameObject.transform.position = newPos;
-		camera.transform.position = new Vector3 (transform.position.x, MyConstants.CAMERA_HEIGHT, transform.position.z);
+
+		//And you are not walking into water
+		if(newPos.y > MyConstants.WATER_HEIGHT_LEVEL)
+		{
+			gameObject.transform.position = newPos;
+			camera.transform.position = new Vector3 (transform.position.x, MyConstants.CAMERA_HEIGHT, transform.position.z);
+		}
+	}
+
+	void OnCollisionEnter(Collision collision)
+	{
+		if (collision.gameObject.tag == "Tunnel") 
+		{
+			MyConstants.Win (1);
+		} 
+		else if (collision.gameObject.tag == "TunnelRubble") 
+		{
+			Debug.Log ("Hit rubble");
+			if(inventory.ContainsItem (ItemType.SHOVEL))
+			{
+				Debug.Log ("Destroyed");
+				Destroy (collision.gameObject);
+			}
+		}
+		else if (collision.gameObject.tag == "Collectible") 
+		{
+			Debug.Log ("Picked up shovel");
+			Collectible item = collision.gameObject.GetComponent<Collectible>();
+			inventory.AddItems (item.type, item.amount);
+			Destroy (collision.gameObject);
+		}
 	}
 	
 	void DontMove()

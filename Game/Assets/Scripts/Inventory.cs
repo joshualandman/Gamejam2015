@@ -2,20 +2,16 @@
 using System.Collections;
 
 public class Inventory {
-	const int numItemTypes = 8;
-	enum ItemType
-	{
-		SHOVEL, AXE, WOOD, FEATHERS, MATCHES, KNIFE, FLINT, ROPE
-	}
+	
 
 
 	private int[] items;
 
 	// Use this for initialization
 	public Inventory () {
-		items = new int[numItemTypes];
+		items = new int[MyConstants.NUM_ITEM_TYPES];
 
-		for (int i = 0; i < numItemTypes; i++) {
+		for (int i = 0; i < MyConstants.NUM_ITEM_TYPES; i++) {
 			items[i] = 0;
 		}
 	}
@@ -24,7 +20,7 @@ public class Inventory {
 	/// Adds one item to the bag.
 	/// </summary>
 	/// <param name="type">Type of item to add.</param>
-	void AddItem(ItemType type)
+	public void AddItem(ItemType type)
 	{
 		items [(int)type]++;
 	}
@@ -34,7 +30,7 @@ public class Inventory {
 	/// </summary>
 	/// <param name="type">Type of item to add.</param>
 	/// <param name="amount">Amount to add.</param>
-	void AddItems(ItemType type, int amount)
+	public void AddItems(ItemType type, int amount)
 	{
 		items [(int)type] += amount;
 	}
@@ -44,7 +40,7 @@ public class Inventory {
 	/// </summary>
 	/// <returns><c>true</c>, if item was taken, <c>false</c> otherwise.</returns>
 	/// <param name="type">Type of item to take.</param>
-	bool TakeItem(ItemType type)
+	public bool TakeItem(ItemType type)
 	{
 		if (items [(int)type] > 0) 
 		{
@@ -60,7 +56,7 @@ public class Inventory {
 	/// <returns><c>true</c>, if items was taken, <c>false</c> otherwise.</returns>
 	/// <param name="type">Type of item to take.</param>
 	/// <param name="amount">Amount to take.</param>
-	bool TakeItems(ItemType type, int amount)
+	public bool TakeItems(ItemType type, int amount)
 	{
 		if(items[(int)type] >= amount)
 		{
@@ -75,7 +71,7 @@ public class Inventory {
 	/// </summary>
 	/// <returns><c>true</c>, if item was containsed, <c>false</c> otherwise.</returns>
 	/// <param name="type">Type of item to check.</param>
-	bool ContainsItem(ItemType type)
+	public bool ContainsItem(ItemType type)
 	{
 		return items[(int)type] > 0;
 	}
@@ -85,7 +81,7 @@ public class Inventory {
 	/// </summary>
 	/// <returns>The item amount in the inventory.</returns>
 	/// <param name="type">Type of item to check.</param>
-	int GetItemAmount(ItemType type)
+	public int GetItemAmount(ItemType type)
 	{
 		return items[(int)type];
 	}

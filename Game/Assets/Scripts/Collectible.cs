@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Collectible : MonoBehaviour {
 
-	ItemType type;
-	int amount;
+	public ItemType type;
+	public int amount = 1;
 
 	// Use this for initialization
 	void Start () {
