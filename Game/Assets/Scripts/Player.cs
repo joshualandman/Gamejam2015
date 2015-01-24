@@ -30,6 +30,10 @@ public class Player : MonoBehaviour {
 		
 		Move();
 		DontMove();
+		if (Input.GetKeyDown (KeyCode.E)) 
+		{
+			Interact ();
+		}
 	}
 	
 	void Move()
@@ -120,6 +124,24 @@ public class Player : MonoBehaviour {
 		if(timer >= 60.0f)
 		{
 			MyConstants.Win(0);
+		}
+	}
+
+	public void Interact()
+	{
+		GameObject[] interactables = GameObject.FindGameObjectsWithTag ("Interactable");
+
+		foreach (GameObject obj in interactables) 
+		{
+			Vector3 dist = gameObject.transform.position - obj.transform.position;
+			if(dist.magnitude < MyConstants.INTERACT_DISTANCE)
+			{
+				Debug.Log ("Interracting");
+
+				Interactable i = obj.GetComponent<Interactable>();
+				Debug.Log (i);
+				i.Interact (gameObject);
+			}
 		}
 	}
 }
