@@ -17,8 +17,7 @@ public class Player : MonoBehaviour {
 		
 		float height = ((Renderer)gameObject.GetComponent ("Renderer")).bounds.size.y;
 		
-		
-		transform.position = new Vector3 (1250.0f, 200.0f, 800.0f);
+
 		
 		float terrainHeight = Terrain.activeTerrain.SampleHeight (transform.position) + Terrain.activeTerrain.GetPosition ().y + (height / 2.0f);
 		transform.position = new Vector3 (transform.position.x, terrainHeight, transform.position.z);
@@ -72,22 +71,9 @@ public class Player : MonoBehaviour {
 		
 		float heightDiff = 0;
 		heightDiff = newPos.y - gameObject.transform.position.y;
-		
-		
-		
-		
-		//Only move if the height difference is not bigger than you
-		if (Mathf.Abs(heightDiff) < 1.0f) 
-		{
-			//And you are not walking into water
-			if(newPos.y > MyConstants.WATER_HEIGHT_LEVEL)
-			{
-				gameObject.transform.position = newPos;
-				camera.transform.position = new Vector3 (transform.position.x, MyConstants.CAMERA_HEIGHT, transform.position.z);
-			}
-			
-		} 
-		
+
+		gameObject.transform.position = newPos;
+		camera.transform.position = new Vector3 (transform.position.x, MyConstants.CAMERA_HEIGHT, transform.position.z);
 	}
 	
 	void DontMove()

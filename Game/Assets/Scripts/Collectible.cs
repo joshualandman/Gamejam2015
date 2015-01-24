@@ -7,9 +7,7 @@ public class Collectible : MonoBehaviour {
 	int amount;
 
 	// Use this for initialization
-	void Start (ItemType t, int amt) {
-		type = t;
-		amount = amt;
+	void Start () {
 	}
 	
 	// Update is called once per frame
