@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	Inventory inventory;
+
 	public Camera camera;
 	public int speed = 1;
 	public float height;
@@ -11,7 +13,7 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		inventory = new Inventory ();
 	}
 	
 	// Update is called once per frame

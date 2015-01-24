@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Inventory : MonoBehaviour {
+public class Inventory {
 	const int numItemTypes = 8;
 	enum ItemType
 	{
@@ -12,17 +12,12 @@ public class Inventory : MonoBehaviour {
 	private int[] items;
 
 	// Use this for initialization
-	void Start () {
+	public Inventory () {
 		items = new int[numItemTypes];
 
 		for (int i = 0; i < numItemTypes; i++) {
 			items[i] = 0;
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 
 	/// <summary>
