@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movement : MonoBehaviour {
+public class Player : MonoBehaviour {
 
-	float speed = .1f;
+	public Camera camera;
+	public int speed = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -12,10 +13,9 @@ public class Movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
 		if(Input.GetKeyDown(KeyCode.W))
 		{
-			transform.position += speed * transform.forward;
+			transform.position += speed * transform.up;
 		}
 		if(Input.GetKeyDown(KeyCode.D))
 		{
@@ -23,11 +23,13 @@ public class Movement : MonoBehaviour {
 		}
 		if(Input.GetKeyDown(KeyCode.S))
 		{
-			transform.position += speed * -transform.forward;
+			transform.position += speed * -transform.up;
 		}
 		if(Input.GetKeyDown(KeyCode.A))
 		{
 			transform.position += speed * -transform.right;
 		}
+
+		camera.transform.position = new Vector3 (transform.position.x, transform.position.y, -20);
 	}
 }
