@@ -23,30 +23,30 @@ public class Player : MonoBehaviour {
 
 	void Move()
 	{
-		if(Input.GetKeyDown(KeyCode.W))
+		if(Input.GetKey(KeyCode.W))
 		{
 			transform.position += speed * transform.forward;
 			hasMoved = true;
 		}
-		if(Input.GetKeyDown(KeyCode.D))
+		if(Input.GetKey(KeyCode.D))
 		{
 			transform.position += speed * transform.right;
 			hasMoved = true;
 		}
-		if(Input.GetKeyDown(KeyCode.S))
+		if(Input.GetKey(KeyCode.S))
 		{
 			transform.position += speed * -transform.forward;
 			hasMoved = true;
 		}
-		if(Input.GetKeyDown(KeyCode.A))
+		if(Input.GetKey(KeyCode.A))
 		{
 			transform.position += speed * -transform.right;
 			hasMoved = true;
 		}
 
-		camera.transform.position = new Vector3 (transform.position.x, transform.position.y + 10, transform.position.z);
+		camera.transform.position = new Vector3 (transform.position.x, MyConstants.CAMERA_HEIGHT, transform.position.z);
 
-		height = Terrain.activeTerrain.SampleHeight (transform.position) + Terrain.activeTerrain.GetPosition ().y;
+		height = Terrain.activeTerrain.SampleHeight (transform.position) + Terrain.activeTerrain.GetPosition ().y + (((Renderer)gameObject.GetComponent ("Renderer")).bounds.size.y / 2.0f);
 		
 		gameObject.transform.position = new Vector3 (transform.position.x, height, transform.position.z);
 		//gameObject.transform.position.y = Terrain.activeTerrain.SampleHeight(transform.position);

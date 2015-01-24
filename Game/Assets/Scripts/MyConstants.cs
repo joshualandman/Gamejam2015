@@ -9,6 +9,7 @@ enum ItemType
 
 public class MyConstants {
 	public const int NUM_ITEM_TYPES = 8;
+	public const int CAMERA_HEIGHT = 210;
 
 
 }
