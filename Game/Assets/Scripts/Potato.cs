@@ -4,6 +4,7 @@ using System.Collections;
 public class Potato : Interactable {
 
 	public bool isLit = false;
+	public ParticleSystem flames;
 	Transform potato = GameObject.Find("Torch").GetComponent<Transform>();
 	Transform potato2;
 
@@ -14,7 +15,7 @@ public class Potato : Interactable {
 
 	// Use this for initialization
 	void Start () {
-	
+		flames.Stop();
 	}
 	
 	// Update is called once per frame
@@ -25,14 +26,22 @@ public class Potato : Interactable {
 	public override void Interact(GameObject obj)
 	{
 		Player p = obj.GetComponent<Player>();
-		if(p.inventory.ContainsItem (ItemType.MATCHES))
+		if(true || p.inventory.ContainsItem (ItemType.MATCHES))
 		{
 			isLit = !isLit;
-			//Debug.Log("isLit = " + isLit);
+			if(isLit)
+			{
+				flames.Play ();
+			}
+			else
+			{
+				flames.Stop();
+			}
 		}
 		else
 		{
 			isLit = false;
 		}
+
 	}
 }
