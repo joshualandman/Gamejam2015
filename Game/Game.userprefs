@@ -1,8 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\FireBad.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Pirate.cs">
     <Files>
-      <File FileName="Assets\Scripts\FireBad.cs" Line="28" Column="55" />
+      <File FileName="Assets\Scripts\FireBad.cs" Line="17" Column="3" />
+      <File FileName="Assets\Scripts\AI.cs" Line="39" Column="51" />
+      <File FileName="Assets\Scripts\Pirate.cs" Line="125" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

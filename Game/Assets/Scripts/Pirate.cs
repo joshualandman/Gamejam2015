@@ -10,7 +10,18 @@ public class Pirate : MonoBehaviour {
 	AI.State state;
 	
 	public float health;
-	
+
+	GameObject[] path = new GameObject[6];
+	public bool followPath = false;
+
+	public GameObject target;
+	int count = 0;
+	public GameObject t0;
+	public GameObject t1;
+	public GameObject t2;
+	public GameObject t3;
+	public GameObject t4;
+	public GameObject t5;
 	
 	float attackSpeed;
 	float attackTimer;
@@ -32,13 +43,26 @@ public class Pirate : MonoBehaviour {
 		
 		attackSpeed = 1;
 		attackTimer = 0;
-		
+
+		path[0] = t0;
+		path[1] = t1;
+		path[2] = t2;
+		path[3] = t3;
+		path[4] = t4;
+		path[5] = t5;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (health <= 0)
 			Destroy (gameObject);
+
+		if(followPath)
+		{
+			state = AI.State.SEEKING;
+			target = path[count];
+			Follow ();
+		}
 		
 		switch (state) 
 		{
@@ -86,6 +110,22 @@ public class Pirate : MonoBehaviour {
 			if(AI.InRange (gameObject.transform.position, player.transform.position, MyConstants.ARRIVE_RADIUS))
 			{
 				state = AI.State.ATTACKING;
+			}
+		}
+	}
+
+	void Follow()
+	{
+		Vector3 seekVec = AI.Seek(gameObject.transform.position, target.transform.position, MyConstants.PIRATE_SPEED);
+		Move (seekVec);
+
+		//If in range for an attack
+		if(AI.InRange (gameObject.transform.position, target.transform.position, MyConstants.ARRIVE_RADIUS))
+		{
+			count++;
+			if(count >= 6)
+			{
+				count = 0;
 			}
 		}
 	}
@@ -151,6 +191,5 @@ public class Pirate : MonoBehaviour {
 			gameObject.transform.position = newPos;
 		}
 	}
-	
 	
 }
