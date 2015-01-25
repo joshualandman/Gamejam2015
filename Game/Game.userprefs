@@ -1,30 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\GameJam2015\Game\Assets\Scripts\Potato.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\FireBad.cs">
     <Files>
-      <File FileName="..\..\GameJam2015\Game\Assets\Scripts\Potato.cs" Line="18" Column="14" />
-      <File FileName="Assets\Scripts\Player.cs" Line="59" Column="65" />
-      <File FileName="..\..\GameJam2015\Game\Assets\Scripts\Player.cs" Line="1" Column="1" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MyConstants.cs">
-    <Files>
-      <File FileName="Assets\Scripts\Player.cs" Line="5" Column="4" />
-      <File FileName="..\..\GameJam2015\Game\Assets\Scripts\Player.cs" Line="206" Column="1" />
->>>>>>> 30f8a1b2c9c82612678042ae7766ac2a96a4d2d2
-      <File FileName="Assets\Scripts\AI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Altar.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Potato.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MenuButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Initialize.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MyConstants.cs" Line="13" Column="16" />
-      <File FileName="Assets\Scripts\Collectible.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Inventory.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Interactable.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Pirate.cs" Line="157" Column="1" />
-      <File FileName="Assets\Scripts\Animations.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\InteractionGUI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\FireBad.cs" Line="24" Column="1" />
+      <File FileName="Assets\Scripts\FireBad.cs" Line="28" Column="55" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

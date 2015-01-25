@@ -13,11 +13,19 @@ public class FireBad : MonoBehaviour {
 	
 	}
 
-	void OnCollisionEnter(Collision other)
+	void OnTriggerEnter(Collider other)
 	{
 		if(other.gameObject.tag == "Player")
 		{
 			other.gameObject.GetComponent<Player>().health -= 10;
+		}
+	}
+
+	void OnTriggerStay(Collider other)
+	{
+		if(other.gameObject.tag == "Player")
+		{
+			other.gameObject.GetComponent<Player>().health -= 3;
 		}
 	}
 }
