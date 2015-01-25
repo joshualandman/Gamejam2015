@@ -29,6 +29,12 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if(health <= 0)
+		{
+			MyConstants.Win (6);
+		}
+
 		Rotate ();
 		Move();
 		DontMove();
@@ -135,6 +141,13 @@ public class Player : MonoBehaviour {
 			Collectible item = collision.gameObject.GetComponent<Collectible> ();
 			inventory.AddItems (item.type, item.amount);
 			Destroy (collision.gameObject);
+		} 
+		else if (collision.gameObject.tag == "Flight") 
+		{
+			if(inventory.ContainsItem(ItemType.WINGS))
+			{
+				MyConstants.Win(5);
+			}
 		} 
 		else if (collision.gameObject.tag == "Portal")
 		{

@@ -16,6 +16,6 @@ public class Ship : Interactable {
 	public override void Interact(GameObject obj)
 	{
 		Player p = obj.GetComponent<Player> ();
-		MyConstants.Win(6);
+		MyConstants.Win(4);
 	}
 }
