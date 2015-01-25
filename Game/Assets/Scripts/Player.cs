@@ -29,13 +29,20 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		Rotate ();
 		Move();
 		DontMove();
 		if (Input.GetKeyDown (KeyCode.E)) 
 		{
 			Interact ();
 		}
+	}
+
+	void Rotate()
+	{
+		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+		transform.forward = new Vector3 (ray.direction.x, transform.forward.y, ray.direction.z);
+		
 	}
 	
 	void Move()
