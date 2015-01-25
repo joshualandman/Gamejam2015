@@ -36,8 +36,12 @@ public class Player : MonoBehaviour {
 		{
 			Interact ();
 		}
+		if (Input.GetMouseButtonDown (0)) 
+		{
+			Attack();
+		}
 	}
-
+	
 	void Rotate()
 	{
 		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -53,38 +57,38 @@ public class Player : MonoBehaviour {
 		newPos.z = transform.position.z;
 		
 		moving = false;
-
+		
 		if(Input.GetKey(KeyCode.W))
 		{
 			newPos += MyConstants.PLAYER_SPEED * new Vector3(0.0f, 0.0f, 1.0f);
 			hasMoved = true;
-
+			
 			moving = true;
 		}
 		if(Input.GetKey(KeyCode.D))
 		{
 			newPos += MyConstants.PLAYER_SPEED * new Vector3(1.0f, 0.0f, 0.0f);
 			hasMoved = true;
-
+			
 			moving = true;
-
+			
 		}
 		if(Input.GetKey(KeyCode.S))
 		{
 			newPos += MyConstants.PLAYER_SPEED * new Vector3(0.0f, 0.0f, -1.0f);
 			hasMoved = true;
-
+			
 			moving = true;
-
+			
 		}
 		if(Input.GetKey(KeyCode.A))
 		{
 			newPos += MyConstants.PLAYER_SPEED * new Vector3(-1.0f, 0.0f, 0.0f);
 			hasMoved = true;
-
+			
 			moving = true;
 		}
-
+		
 		if (moving) {
 			GetComponent<Animator> ().SetInteger ("AnimState", 1);
 		} 
@@ -148,7 +152,7 @@ public class Player : MonoBehaviour {
 		{
 			timer = 0.0f;
 		}
-
+		
 		if(timer >= 60.0f)
 		{
 			MyConstants.Win(0);
@@ -172,5 +176,30 @@ public class Player : MonoBehaviour {
 				i.Interact (gameObject);
 			}
 		}
+	}
+	
+	public void Attack()
+	{
+		Vector3 flatForward = new Vector3 (transform.forward.x, 0.0f, transform.forward.z);
+		flatForward.Normalize ();
+		Ray r = new Ray (gameObject.transform.position, flatForward);
+		RaycastHit hitInfo = new RaycastHit();
+		Physics.Raycast(r, out hitInfo, MyConstants.PLAYER_ATTACK_DISTANCE);
+		
+		if (hitInfo.collider != null) 
+		{
+			GameObject collidedWith = hitInfo.collider.gameObject;
+			
+			Debug.Log ("Hit");
+			
+			if(collidedWith.tag == "Pirate")
+			{
+				Pirate pirateScript = collidedWith.GetComponent<Pirate>();
+				pirateScript.health -= MyConstants.PLAYER_DAMAGE;
+			}
+			//If the collided gameObject is an enemy
+			
+		}
+		
 	}
 }

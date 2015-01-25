@@ -16,8 +16,11 @@ public class MyConstants {
 	
 	//Radii
 	//Player
+	public const float PLAYER_DAMAGE = 100.0f;
 	public const float PLAYER_SPEED = 1.0f;
 	public const int INTERACT_DISTANCE = 50;
+	public const float PLAYER_ATTACK_DISTANCE = 20;
+	
 	//AI
 	public const int AWARENESS_RADIUS = 75;
 	public const int ARRIVE_RADIUS = 25;
