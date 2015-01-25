@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
 	
 	public Camera camera;
 	bool hasMoved = false;
+	bool moving = false;
 	public float timer = 0.0f;
 	public float health = 100;
 	public float maxHealth = 100;
@@ -44,30 +45,44 @@ public class Player : MonoBehaviour {
 		newPos.y = transform.position.y;
 		newPos.z = transform.position.z;
 		
-		
+		moving = false;
+
 		if(Input.GetKey(KeyCode.W))
 		{
-			newPos += MyConstants.PLAYER_SPEED * transform.forward;
+			newPos += MyConstants.PLAYER_SPEED * transform.up;
 			hasMoved = true;
+
+			moving = true;
 		}
 		if(Input.GetKey(KeyCode.D))
 		{
 			newPos += MyConstants.PLAYER_SPEED * transform.right;
 			hasMoved = true;
+
+			moving = true;
+
 		}
 		if(Input.GetKey(KeyCode.S))
 		{
-			newPos += MyConstants.PLAYER_SPEED * -transform.forward;
+			newPos += MyConstants.PLAYER_SPEED * -transform.up;
 			hasMoved = true;
+
+			moving = true;
+
 		}
 		if(Input.GetKey(KeyCode.A))
 		{
 			newPos += MyConstants.PLAYER_SPEED * -transform.right;
 			hasMoved = true;
+
+			moving = true;
 		}
-		if (Input.GetKeyDown ("q")) {
-			health -= 10;
-			Debug.Log(health);
+
+		if (moving) {
+			GetComponent<Animator> ().SetInteger ("AnimState", 1);
+		} 
+		else {
+			GetComponent<Animator> ().SetInteger ("AnimState", 0);
 		}
 		
 		//Height of gameObject

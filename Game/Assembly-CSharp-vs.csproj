@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AI.cs" />
      <Compile Include="Assets\Scripts\Altar.cs" />
+     <Compile Include="Assets\Scripts\Animations.cs" />
      <Compile Include="Assets\Scripts\Collectible.cs" />
      <Compile Include="Assets\Scripts\Initialize.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />
@@ -61,7 +62,7 @@
      <Compile Include="Assets\Scripts\Rubble.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>D:/GameJam2015/Game/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>D:/Gamejam2015/Game/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>

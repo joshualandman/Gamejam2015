@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AI.cs" />
      <Compile Include="Assets\Scripts\Altar.cs" />
+     <Compile Include="Assets\Scripts\Animations.cs" />
      <Compile Include="Assets\Scripts\Collectible.cs" />
      <Compile Include="Assets\Scripts\Initialize.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />
