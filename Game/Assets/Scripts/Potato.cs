@@ -25,10 +25,10 @@ public class Potato : Interactable {
 	public override void Interact(GameObject obj)
 	{
 		Player p = obj.GetComponent<Player>();
-		if(true || p.inventory.ContainsItem (ItemType.MATCHES))
+		if(p.inventory.ContainsItem (ItemType.MATCHES))
 		{
 			isLit = !isLit;
-			Debug.Log("isLit = " + isLit);
+			//Debug.Log("isLit = " + isLit);
 		}
 		else
 		{

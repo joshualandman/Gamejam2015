@@ -34,9 +34,9 @@ public class Altar : Interactable {
 			{
 				allLit = false;
 			}
-			Debug.Log("" + i + " isLit = " + torches[i].isLit);
+			//Debug.Log("" + i + " isLit = " + torches[i].isLit);
 		}
-		Debug.Log("allLit = " + allLit);
+		//Debug.Log("allLit = " + allLit);
 		if (allLit)
 		{
 			MyConstants.Win(3);

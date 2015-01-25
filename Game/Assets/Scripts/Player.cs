@@ -125,10 +125,15 @@ public class Player : MonoBehaviour {
 		{
 			timer += Time.deltaTime;
 		}
-		
+		else
+		{
+			timer = 0.0f;
+		}
+
 		if(timer >= 60.0f)
 		{
 			MyConstants.Win(0);
+			timer = 0.0f;
 		}
 	}
 	
