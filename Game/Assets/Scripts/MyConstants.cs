@@ -12,6 +12,8 @@ public class MyConstants {
 	public const int CAMERA_HEIGHT = 300;
 	public const int WATER_HEIGHT_LEVEL = 150;
 	
+	public const float PLAYER_HEIGHT = 5.0f;
+	
 	//Radii
 	//Player
 	public const float PLAYER_SPEED = 1.0f;

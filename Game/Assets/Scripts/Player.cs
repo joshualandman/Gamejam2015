@@ -96,12 +96,9 @@ public class Player : MonoBehaviour {
 		float height = ((Renderer)gameObject.GetComponent ("Renderer")).bounds.size.y;
 		
 		//Height of terrain
-		float terrainHeight = Terrain.activeTerrain.SampleHeight (newPos) + Terrain.activeTerrain.GetPosition ().y + (height / 2.0f);
+		float terrainHeight = Terrain.activeTerrain.SampleHeight (newPos) + Terrain.activeTerrain.GetPosition ().y + MyConstants.PLAYER_HEIGHT;
 		
 		newPos = new Vector3 (newPos.x, terrainHeight, newPos.z);
-		
-		float heightDiff = 0;
-		heightDiff = newPos.y - gameObject.transform.position.y;
 		
 		
 		//And you are not walking into water
