@@ -35,6 +35,9 @@ public class Chicken : MonoBehaviour {
 		if (health <= 0)
 		{
 			p.inventory.AddItems(ItemType.FEATHERS, 100);
+			p.itemName = "100 " + ItemType.FEATHERS.ToString ();
+			p.pickedUpItem = true;
+
 			Destroy (gameObject);
 		}
 

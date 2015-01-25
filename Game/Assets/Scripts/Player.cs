@@ -13,10 +13,17 @@ public class Player : MonoBehaviour {
 	public float health = 100;
 	public float maxHealth = 100;
 	public AudioClip sound;
+	public float itemTimer = 6.0f;
+	public float itemTimerLimit = 6.0f;
+	public string itemName;
+
+	public bool pickedUpItem;
 
 	// Use this for initialization
 	void Start () {
 		MyConstants.Init ();
+
+		pickedUpItem = false;
 
 		inventory = new Inventory ();
 		
@@ -32,7 +39,6 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		if(health <= 0)
 		{
 			MyConstants.Win (6);
@@ -141,11 +147,15 @@ public class Player : MonoBehaviour {
 		} 
 		else if (collision.gameObject.tag == "Collectible") 
 		{
-			Debug.Log ("Picked up shovel");
+			itemTimer = itemTimerLimit;
 			camera.audio.PlayOneShot(sound);
 			Collectible item = collision.gameObject.GetComponent<Collectible> ();
+			itemName = item.amount.ToString() + " " + item.type.ToString();
 			inventory.AddItems (item.type, item.amount);
 			Destroy (collision.gameObject);
+
+			pickedUpItem = true;
+
 		} 
 		else if (collision.gameObject.tag == "Flight") 
 		{
@@ -231,5 +241,18 @@ public class Player : MonoBehaviour {
 			
 		}
 		
+	}
+
+	void OnGUI() {
+		if (pickedUpItem) {
+
+			itemTimer -= Time.deltaTime;
+			GUI.TextArea (new Rect (0, Screen.height - Screen.height / 16, Screen.width / 5, Screen.height / 15), "You have obtained " + itemName);
+
+			if (itemTimer <= 0) {
+				itemTimer = itemTimerLimit;
+				pickedUpItem = false;
+			}
+		}
 	}
 }

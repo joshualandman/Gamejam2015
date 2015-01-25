@@ -3,8 +3,6 @@ using System.Collections;
 
 public class Tree : Interactable {
 
-	Player playerSc;
-
 	// Use this for initialization
 	void Start () {
 
@@ -21,7 +19,11 @@ public class Tree : Interactable {
 		if(p.inventory.ContainsItem (ItemType.AXE))
 		{
 			p.inventory.AddItems(ItemType.WOOD,2);
+			p.itemName = "2 " + ItemType.WOOD.ToString ();
+			p.pickedUpItem = true;
 			Destroy (gameObject);
+
+
 		}
 	}
 }
