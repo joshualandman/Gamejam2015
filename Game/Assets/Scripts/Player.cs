@@ -56,14 +56,14 @@ public class Player : MonoBehaviour {
 
 		if(Input.GetKey(KeyCode.W))
 		{
-			newPos += MyConstants.PLAYER_SPEED * transform.up;
+			newPos += MyConstants.PLAYER_SPEED * new Vector3(0.0f, 0.0f, 1.0f);
 			hasMoved = true;
 
 			moving = true;
 		}
 		if(Input.GetKey(KeyCode.D))
 		{
-			newPos += MyConstants.PLAYER_SPEED * transform.right;
+			newPos += MyConstants.PLAYER_SPEED * new Vector3(1.0f, 0.0f, 0.0f);
 			hasMoved = true;
 
 			moving = true;
@@ -71,7 +71,7 @@ public class Player : MonoBehaviour {
 		}
 		if(Input.GetKey(KeyCode.S))
 		{
-			newPos += MyConstants.PLAYER_SPEED * -transform.up;
+			newPos += MyConstants.PLAYER_SPEED * new Vector3(0.0f, 0.0f, -1.0f);
 			hasMoved = true;
 
 			moving = true;
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour {
 		}
 		if(Input.GetKey(KeyCode.A))
 		{
-			newPos += MyConstants.PLAYER_SPEED * -transform.right;
+			newPos += MyConstants.PLAYER_SPEED * new Vector3(-1.0f, 0.0f, 0.0f);
 			hasMoved = true;
 
 			moving = true;
