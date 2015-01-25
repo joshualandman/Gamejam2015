@@ -13,7 +13,10 @@ abstract public class Interactable : MonoBehaviour {
 		
 	}
 	
-	abstract public void Interact(GameObject obj);
+	virtual public void Interact(GameObject obj)
+	{
+
+	}
 	
 	
 }
