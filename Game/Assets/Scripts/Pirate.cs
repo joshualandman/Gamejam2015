@@ -63,38 +63,36 @@ public class Pirate : MonoBehaviour {
 			target = path[count];
 			Follow ();
 		}
-		
-		switch (state) 
+		else
 		{
-		case AI.State.WAITING:
-			Wait ();
-			break;
-		case AI.State.SEEKING:
-			Seek ();
-			break;
-		case AI.State.ATTACKING:
-			Attack();
-			break;
-		case AI.State.RETURNING:
-			Retreat();
-			break;
+			switch (state) 
+			{
+			case AI.State.WAITING:
+				Wait ();
+				break;
+			case AI.State.SEEKING:
+				Seek ();
+				break;
+			case AI.State.ATTACKING:
+				Attack();
+				break;
+			case AI.State.RETURNING:
+				Retreat();
+				break;
+			}
 		}
 	}
 	
 	void Wait()
 	{
-		Debug.Log ("Waiting");
 		if (AI.InRange (gameObject.transform.position, player.transform.position, MyConstants.AWARENESS_RADIUS)) 
-		{
-			Debug.Log ("Switching");
-			
+		{			
 			state = AI.State.SEEKING;
 		}
 	}
 	
 	void Seek()
 	{
-		Debug.Log ("Seeking");
 		
 		//If the object is not within range of the start point
 		if (!AI.InRange (gameObject.transform.position, spawnPoint, MyConstants.FOLLOW_DISTANCE)) 

@@ -9,7 +9,7 @@ public enum ItemType
 
 public class MyConstants {
 	public const int NUM_ITEM_TYPES = 12;
-	public const int CAMERA_HEIGHT = 300;
+	public const int CAMERA_HEIGHT = 400;
 	public const int WATER_HEIGHT_LEVEL = 150;
 	
 	public const float PLAYER_HEIGHT = 5.0f;
@@ -19,7 +19,7 @@ public class MyConstants {
 	public const float PLAYER_DAMAGE = 100.0f;
 	public const float PLAYER_SPEED = 1.0f;
 	public const int INTERACT_DISTANCE = 50;
-	public const float PLAYER_ATTACK_DISTANCE = 20;
+	public const float PLAYER_ATTACK_DISTANCE = 40;
 	
 	//AI
 	public const int AWARENESS_RADIUS = 75;
