@@ -9,6 +9,9 @@ public class Pirate : MonoBehaviour {
 	Vector3 spawnPoint;
 	AI.State state;
 	
+	public float health;
+	
+	
 	float attackSpeed;
 	float attackTimer;
 	
@@ -25,6 +28,8 @@ public class Pirate : MonoBehaviour {
 		spawnPoint = gameObject.transform.position;
 		state = AI.State.WAITING;
 		
+		health = 100.0f;
+		
 		attackSpeed = 1;
 		attackTimer = 0;
 		
@@ -32,6 +37,9 @@ public class Pirate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (health <= 0)
+			Destroy (gameObject);
+		
 		switch (state) 
 		{
 		case AI.State.WAITING:
