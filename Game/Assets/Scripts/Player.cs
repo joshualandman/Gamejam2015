@@ -12,7 +12,8 @@ public class Player : MonoBehaviour {
 	public float timer = 0.0f;
 	public float health = 100;
 	public float maxHealth = 100;
-	
+	public AudioClip sound;
+
 	// Use this for initialization
 	void Start () {
 		inventory = new Inventory ();
@@ -138,6 +139,7 @@ public class Player : MonoBehaviour {
 		else if (collision.gameObject.tag == "Collectible") 
 		{
 			Debug.Log ("Picked up shovel");
+			camera.audio.PlayOneShot(sound);
 			Collectible item = collision.gameObject.GetComponent<Collectible> ();
 			inventory.AddItems (item.type, item.amount);
 			Destroy (collision.gameObject);
