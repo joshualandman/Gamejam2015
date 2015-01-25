@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Initialize : MonoBehaviour {
 
-	//Player ref
+	// Player Reference
 	public GameObject playerGO;
 	private Player player;
 
@@ -20,41 +20,36 @@ public class Initialize : MonoBehaviour {
 	string[] inventoryLabels = new string[MyConstants.NUM_ITEM_TYPES];
 
 	// Health/Stamina Bar Variables
-	int healthbarLength = 100;
-	int healthbarMaxLength = 100;
-	int staminabarLength = 100;
-	int staminabarMaxLength = 100;
+	int healthbarMaxLength;
+	int staminabarMaxLength;
 
-	// Use this for initialization
 	void Start () {
 
 		player = playerGO.GetComponent<Player> ();
 
-	
 		for (int i = 0; i < MyConstants.NUM_ITEM_TYPES; i++) 
 		{
 			inventoryTextures[i] = inventoryImg;
 			inventoryLabels [i] = ((ItemType)i).ToString () + ": " + + player.inventory.GetItemAmount((ItemType)i);
-
 		}
+
+		healthbarMaxLength = Screen.width / 5;
+		staminabarMaxLength = Screen.width / 5;
 	}
-	// Update is called once per frame
+
 	void Update () {
 		for (int i = 0; i < MyConstants.NUM_ITEM_TYPES; i++) 
 		{
 			inventoryLabels [i] = ((ItemType)i).ToString () + ": " + + player.inventory.GetItemAmount((ItemType)i);
-
 		}
-
 	}
-
-
 	
 	void OnGUI() {
 		// Player portrait
 		GUI.DrawTexture (new Rect (10, 10, Screen.width/15, Screen.width/15), portraitImg);
 		// Health Bar
-		GUI.DrawTexture (new Rect (10 + Screen.width / 15 + 5, 10 , Screen.width / 5, Screen.height / 70), healthbarBackground);
+		GUI.DrawTexture (new Rect (10 + Screen.width / 15 + 5, 10 ,((player.health / player.maxHealth) * healthbarMaxLength), Screen.width / 30), healthbarBackground);
+		GUI.TextArea (new Rect (10 + Screen.width / 15 + 5 + ((player.health / player.maxHealth) * healthbarMaxLength), 10, 150, Screen.width / 60), player.health + "/" + player.maxHealth);
 		// Inventory Button
 		if (GUI.Button (new Rect (Screen.width - Screen.width / 15, Screen.height - Screen.width / 15, Screen.width / 15, Screen.width / 15), inventoryImg)) {
 			inventoryOpen = !inventoryOpen;

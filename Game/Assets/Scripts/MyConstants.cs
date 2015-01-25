@@ -3,12 +3,12 @@ using System.Collections;
 
 public enum ItemType
 {
-	SHOVEL, AXE, WOOD, FEATHERS, MATCHES, KNIFE, FLINT, ROPE
+	SHOVEL, AXE, KNIFE, FLINT, WOOD, FEATHERS, MATCHES, ROPE, CLOTH, FAIRYDUST, SHIP, WINGS
 }
 
 
 public class MyConstants {
-	public const int NUM_ITEM_TYPES = 8;
+	public const int NUM_ITEM_TYPES = 12;
 	public const int CAMERA_HEIGHT = 300;
 	public const int WATER_HEIGHT_LEVEL = 150;
 

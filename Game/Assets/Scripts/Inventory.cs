@@ -2,8 +2,6 @@
 using System.Collections;
 
 public class Inventory {
-	
-
 
 	private int[] items;
 

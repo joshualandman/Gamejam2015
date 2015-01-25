@@ -10,6 +10,8 @@ public class Player : MonoBehaviour {
 	public int speed = 1;
 	bool hasMoved = false;
 	public float timer = 0.0f;
+	public float health = 100;
+	public float maxHealth = 100;
 	
 	// Use this for initialization
 	void Start () {
@@ -63,6 +65,10 @@ public class Player : MonoBehaviour {
 		{
 			newPos += speed * -transform.right;
 			hasMoved = true;
+		}
+		if (Input.GetKeyDown ("q")) {
+			health -= 10;
+			Debug.Log(health);
 		}
 		
 		//Height of gameObject
