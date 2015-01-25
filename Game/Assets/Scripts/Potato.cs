@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Potato : Interactable {
 
-	bool isLit = false;
+	public bool isLit = false;
 	Transform potato = GameObject.Find("Torch").GetComponent<Transform>();
 	Transform potato2;
 
@@ -25,9 +25,10 @@ public class Potato : Interactable {
 	public override void Interact(GameObject obj)
 	{
 		Player p = obj.GetComponent<Player>();
-		if(p.inventory.ContainsItem (ItemType.MATCHES))
+		if(true || p.inventory.ContainsItem (ItemType.MATCHES))
 		{
 			isLit = !isLit;
+			Debug.Log("isLit = " + isLit);
 		}
 		else
 		{

@@ -12,7 +12,7 @@ public class MyConstants {
 	public const int CAMERA_HEIGHT = 300;
 	public const int WATER_HEIGHT_LEVEL = 150;
 
-	public const int INTERACT_DISTANCE = 50;
+	public const int INTERACT_DISTANCE = 25;
 	
 	public static void Win(int ending)
 	{
