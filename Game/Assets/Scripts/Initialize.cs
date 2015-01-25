@@ -12,6 +12,7 @@ public class Initialize : MonoBehaviour {
 	public Texture portraitImg;
 	public Texture inventoryImg;
 	public Texture healthbarBackground;
+	public GUISkin skin;
 
 	// Inventory Variables
 	bool inventoryOpen = false;
@@ -49,7 +50,7 @@ public class Initialize : MonoBehaviour {
 		GUI.DrawTexture (new Rect (10, 10, Screen.width/15, Screen.width/15), portraitImg);
 		// Health Bar
 		GUI.DrawTexture (new Rect (10 + Screen.width / 15 + 5, 10 ,((player.health / player.maxHealth) * healthbarMaxLength), Screen.width / 30), healthbarBackground);
-		GUI.TextArea (new Rect (10 + Screen.width / 15 + 5 + ((player.health / player.maxHealth) * healthbarMaxLength), 10, 150, Screen.width / 60), player.health + "/" + player.maxHealth);
+		GUI.TextArea (new Rect (10 + Screen.width / 15 + 5 + ((player.health / player.maxHealth) * healthbarMaxLength), 10, 150, Screen.width / 60), player.health + "/" + player.maxHealth, skin.textArea);
 		// Inventory Button
 		if (GUI.Button (new Rect (Screen.width - Screen.width / 15, Screen.height - Screen.width / 15, Screen.width / 15, Screen.width / 15), inventoryImg)) {
 			inventoryOpen = !inventoryOpen;
