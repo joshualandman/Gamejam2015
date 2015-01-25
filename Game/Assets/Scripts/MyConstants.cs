@@ -30,18 +30,20 @@ public class MyConstants {
 
 	//Endings
 	public const int NUM_ENDINGS = 8;
-	public static bool[] ENDINGS_UNLOCKED;
 	public static string[] ENDINGS;
+	public static bool[] ENDINGS_UNLOCKED= new bool[NUM_ENDINGS];
+
 	
 	
 	public static void Init()
 	{
-		ENDINGS_UNLOCKED = new bool[NUM_ENDINGS];
-		
+		//ENDINGS_UNLOCKED 
+
+		/*
 		for (int i = 0; i < MyConstants.NUM_ENDINGS; i++) 
 		{
 			ENDINGS_UNLOCKED[i] = false;
-		}
+		}*/
 		
 		MyConstants.ENDINGS = new string[NUM_ENDINGS]
 		{
