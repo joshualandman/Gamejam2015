@@ -34,6 +34,7 @@ public class Player : MonoBehaviour {
 		if(health <= 0)
 		{
 			MyConstants.Win (6);
+			health = 1;
 		}
 
 		Rotate ();
