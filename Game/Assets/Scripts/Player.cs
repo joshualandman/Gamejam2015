@@ -7,7 +7,6 @@ public class Player : MonoBehaviour {
 	public Inventory inventory;
 	
 	public Camera camera;
-	public int speed = 1;
 	bool hasMoved = false;
 	public float timer = 0.0f;
 	public float health = 100;
@@ -19,7 +18,7 @@ public class Player : MonoBehaviour {
 		
 		float height = ((Renderer)gameObject.GetComponent ("Renderer")).bounds.size.y;
 		
-
+		
 		
 		float terrainHeight = Terrain.activeTerrain.SampleHeight (transform.position) + Terrain.activeTerrain.GetPosition ().y + (height / 2.0f);
 		transform.position = new Vector3 (transform.position.x, terrainHeight, transform.position.z);
@@ -48,22 +47,22 @@ public class Player : MonoBehaviour {
 		
 		if(Input.GetKey(KeyCode.W))
 		{
-			newPos += speed * transform.forward;
+			newPos += MyConstants.PLAYER_SPEED * transform.forward;
 			hasMoved = true;
 		}
 		if(Input.GetKey(KeyCode.D))
 		{
-			newPos += speed * transform.right;
+			newPos += MyConstants.PLAYER_SPEED * transform.right;
 			hasMoved = true;
 		}
 		if(Input.GetKey(KeyCode.S))
 		{
-			newPos += speed * -transform.forward;
+			newPos += MyConstants.PLAYER_SPEED * -transform.forward;
 			hasMoved = true;
 		}
 		if(Input.GetKey(KeyCode.A))
 		{
-			newPos += speed * -transform.right;
+			newPos += MyConstants.PLAYER_SPEED * -transform.right;
 			hasMoved = true;
 		}
 		if (Input.GetKeyDown ("q")) {
@@ -81,8 +80,8 @@ public class Player : MonoBehaviour {
 		
 		float heightDiff = 0;
 		heightDiff = newPos.y - gameObject.transform.position.y;
-
-
+		
+		
 		//And you are not walking into water
 		if(newPos.y > MyConstants.WATER_HEIGHT_LEVEL)
 		{
@@ -90,7 +89,7 @@ public class Player : MonoBehaviour {
 			camera.transform.position = new Vector3 (transform.position.x, MyConstants.CAMERA_HEIGHT, transform.position.z);
 		}
 	}
-
+	
 	void OnCollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.tag == "Tunnel") 
@@ -103,16 +102,16 @@ public class Player : MonoBehaviour {
 			Debug.Log ("Hit rubble");
 			if (inventory.ContainsItem (ItemType.SHOVEL)) 
 			{
-					Debug.Log ("Destroyed");
-					Destroy (collision.gameObject);
+				Debug.Log ("Destroyed");
+				Destroy (collision.gameObject);
 			}
 		} 
 		else if (collision.gameObject.tag == "Collectible") 
 		{
-				Debug.Log ("Picked up shovel");
-				Collectible item = collision.gameObject.GetComponent<Collectible> ();
-				inventory.AddItems (item.type, item.amount);
-				Destroy (collision.gameObject);
+			Debug.Log ("Picked up shovel");
+			Collectible item = collision.gameObject.GetComponent<Collectible> ();
+			inventory.AddItems (item.type, item.amount);
+			Destroy (collision.gameObject);
 		} 
 		else if (collision.gameObject.tag == "Portal")
 		{
@@ -132,18 +131,18 @@ public class Player : MonoBehaviour {
 			MyConstants.Win(0);
 		}
 	}
-
+	
 	public void Interact()
 	{
 		GameObject[] interactables = GameObject.FindGameObjectsWithTag ("Interactable");
-
+		
 		foreach (GameObject obj in interactables) 
 		{
 			Vector3 dist = gameObject.transform.position - obj.transform.position;
 			if(dist.magnitude < MyConstants.INTERACT_DISTANCE)
 			{
 				Debug.Log ("Interracting");
-
+				
 				Interactable i = obj.GetComponent<Interactable>();
 				Debug.Log (i);
 				i.Interact (gameObject);
