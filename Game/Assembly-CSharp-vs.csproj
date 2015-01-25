@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Chicken.cs" />
      <Compile Include="Assets\Scripts\Collectible.cs" />
      <Compile Include="Assets\Scripts\FireBad.cs" />
+     <Compile Include="Assets\Scripts\GameOverScreen.cs" />
      <Compile Include="Assets\Scripts\Initialize.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />
      <Compile Include="Assets\Scripts\InteractionGUI.cs" />
