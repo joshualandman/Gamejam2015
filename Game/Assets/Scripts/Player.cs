@@ -149,6 +149,13 @@ public class Player : MonoBehaviour {
 				MyConstants.Win(5);
 			}
 		} 
+		else if (collision.gameObject.tag == "Boat") 
+		{
+			if(inventory.ContainsItem(ItemType.SHIP))
+			{
+				MyConstants.Win(7);
+			}
+		} 
 		else if (collision.gameObject.tag == "Portal")
 		{
 			MyConstants.Win (2);
