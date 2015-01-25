@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\AI.cs" />
      <Compile Include="Assets\Scripts\Altar.cs" />
      <Compile Include="Assets\Scripts\Animations.cs" />
+     <Compile Include="Assets\Scripts\Chicken.cs" />
      <Compile Include="Assets\Scripts\Collectible.cs" />
      <Compile Include="Assets\Scripts\FireBad.cs" />
      <Compile Include="Assets\Scripts\Initialize.cs" />
@@ -61,6 +62,7 @@
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Potato.cs" />
      <Compile Include="Assets\Scripts\Rubble.cs" />
+     <Compile Include="Assets\Scripts\Tree.cs" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>D:/Gamejam2015/Game/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>

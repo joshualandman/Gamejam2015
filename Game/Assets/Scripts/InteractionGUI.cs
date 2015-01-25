@@ -46,10 +46,9 @@ public class InteractionGUI : MonoBehaviour {
 
 		// Wings Build Button
 		if(GUI.Button (new Rect (backgroundX + backgroundW - backgroundW / 5, backgroundY + (backgroundH / 3) * 2 - backgroundH / 20, backgroundW / 8, backgroundH / 10), "Build!")) {
-			if (inventory.GetItemAmount (ItemType.WOOD) >= 5 && inventory.GetItemAmount (ItemType.FEATHERS) >= 15 && inventory.ContainsItem (ItemType.FAIRYDUST)) {
+			if (inventory.GetItemAmount (ItemType.WOOD) >= 5 && inventory.GetItemAmount (ItemType.FEATHERS) >= 15) {
 				inventory.TakeItems (ItemType.WOOD, 5);
 				inventory.TakeItems (ItemType.FEATHERS, 15);
-				inventory.TakeItem (ItemType.FAIRYDUST);
 				
 				
 				inventory.AddItem (ItemType.WINGS);

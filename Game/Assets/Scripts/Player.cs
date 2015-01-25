@@ -197,6 +197,11 @@ public class Player : MonoBehaviour {
 				Pirate pirateScript = collidedWith.GetComponent<Pirate>();
 				pirateScript.health -= MyConstants.PLAYER_DAMAGE;
 			}
+			else if (collidedWith.tag == "Chicken")
+			{
+				Chicken cScript = collidedWith.GetComponent<Chicken>();
+				cScript.health -= MyConstants.PLAYER_DAMAGE;
+			}
 			//If the collided gameObject is an enemy
 			
 		}
