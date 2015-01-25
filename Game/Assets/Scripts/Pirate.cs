@@ -35,6 +35,11 @@ public class Pirate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (player == null) {
+			player = GameObject.Find ("Player");
+				}
+
+
 		if (health <= 0)
 			Destroy (gameObject);
 

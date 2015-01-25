@@ -16,6 +16,8 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		MyConstants.Init ();
+
 		inventory = new Inventory ();
 		
 		float height = ((Renderer)gameObject.GetComponent ("Renderer")).bounds.size.y;
